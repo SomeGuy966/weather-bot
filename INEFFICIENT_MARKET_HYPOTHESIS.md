@@ -82,17 +82,15 @@ The fact that both of my bets didn't hit got me thinking, these markets _have_ t
 Due to this, I've conclulded that the Kalshi weather markets remain inefficient for several key 
 reasons. 
 
-**First**, the order flow is dominated by retail traders—individuals who often react to weather 
-headlines and hourly temperature readings rather than relying on systematic, model-driven strategies. 
+**First**, the order flow is dominated by retail traders—individuals who often overreact to hourly 
+temperature readings rather than relying on systematic, model-driven strategies. 
 With few sophisticated market-making bots participating, mispricings tend to persist for extended 
 periods.
 
-**Second**, liquidity is thin and bid-ask spreads are wide. L.A.'s weather market has only been open
-since January 5, 2025. As of June 6th, 2025, its total market volume over the course of the past 158
-days is currently $7,400,750.
-
-Averaing the total volume over the course of the past 158 days gives us an average daily
-trading volume of about $47,093.35 per day.
+**Second**, liquidity is thin and bid-ask spreads are wide. For example, the Los Angeles weather 
+market has only been open since January 5, 2025. As of June 6th, 2025, its total volume traded over 
+the course of the past 158 days is currently at \$7,400,750. This gives us an average daily trading 
+volume of about \$47,093.35 per day.
 
 Thus, each city’s market sees somewhere around \$45K–\$55K in daily volume, meaning that trades of 
 just a few thousand dollars can move prices dramatically. In a deep market, these spikes and collapses
@@ -100,7 +98,14 @@ would be smoothed out, but here they happen unchecked, as demonstrated by contra
 98¢ before collapsing to 0¢.
 
 **Third**, it is precisely because of these low daily volumes that large, disciplined institutional
-traders don't bother on these markets. In general, they need at least
+traders don't bother to trade on these markets.
+
+With an average daily trading volume of just \$45–55 K, each weather market on Kalshi 
+remains too illiquid for most institutional participants. Large orders would suffer significant 
+slippage and wide bid–ask spreads, making execution costly and eroding any potential model edge. 
+Institutions require high-liquidity venues to meet strict risk-management and compliance standards, 
+so they’re unlikely to commit capital until volumes grow substantially.
+
 
 **Fourth**, behavioral overreactions to live data exacerbate volatility. When traders see significant 
 changes in 5-minute or hourly temperature readings, they rush in or out of positions, pushing contract
@@ -110,13 +115,14 @@ inefficiency.
 
 **Fifth**, very few participants —retail or automated— model implied volatility or build a volatility 
 surface. Without a volatility-aware pricing framework, convexity mispricings abound and opportunities
-to trade premium on variance remain unexploited. Moreover, there is _significant_ volatility in these
-markets-- probably due to the illiquidity and retail-dominated nature of these exchanges.
+to trade premium on variance remain unexploited. Moreover, we can observe _significant_ volatility in 
+these markets-- probably due to the illiquidity and retail-dominated nature of these exchanges. For
+example, let's take a look at NYC's weather exchange for yesterday, June 10th.
 
 ![Descriptive alt text](./images/nyc_volatility.png)
 
 
-Take the NYC weather exchange yesterday- June 10th- for a contract 1 degree below the government
+This was the market for a contract 1 degree below the
 forecastd high. As you can see, there are huge spikes and dips everywhere. A truly efficient market
 would have a smooth curve that indicates the implied volatility changes gradually over time as more
 and more information slowly comes out.
