@@ -108,19 +108,18 @@ prices to extremes—often as high as 90–98% implied probability—even when t
 is far lower. These panics frequently reverse well before settlement, creating exploitable 
 inefficiency.
 
-**Fourth**, very few participants —retail or automated— model implied volatility or build a volatility 
+**Fifth**, very few participants —retail or automated— model implied volatility or build a volatility 
 surface. Without a volatility-aware pricing framework, convexity mispricings abound and opportunities
 to trade premium on variance remain unexploited. Moreover, there is _significant_ volatility in these
 markets-- probably due to the illiquidity and retail-dominated nature of these exchanges.
 
-<table border="1" cellpadding="4">
-  <tr>
-    <td>
-      <img src="./images/nyc_volatility.png" alt="Screenshot">
-    </td>
-  </tr>
-</table>
+![Descriptive alt text](./images/nyc_volatility.png)
 
+
+Take the NYC weather exchange yesterday- June 10th- for a contract 1 degree below the government
+forecastd high. As you can see, there are huge spikes and dips everywhere. A truly efficient market
+would have a smooth curve that indicates the implied volatility changes gradually over time as more
+and more information slowly comes out.
 
 
 **Finally**, persistent price dislocations illustrate these inefficiencies in action. Anecdotal 
