@@ -120,8 +120,8 @@ def fresh_inputs(
 def open_markets_by_day(station: Station) -> dict[date, list[dict[str, Any]]]:
     out: dict[date, list[dict[str, Any]]] = {}
     for m in kalshi.list_markets(station.kalshi_series, status="open"):
-        day = kalshi._ticker_day(m["ticker"].split("-")[1])
-        out.setdefault(day, []).append(m)  # type: ignore[arg-type]
+        day = kalshi.ticker_day(m["ticker"].split("-")[1])
+        out.setdefault(day, []).append(m)
     return out
 
 
