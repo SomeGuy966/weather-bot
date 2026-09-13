@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "weatherbot"
+version = "1.0.0"
+description = "Calibrated probabilistic forecasts of daily-high temperature for Kalshi weather markets, from METAR observations and NBM guidance."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [{ name = "Anthony Ge" }]
+keywords = ["kalshi", "weather", "prediction-markets", "lightgbm", "forecasting", "calibration", "quant"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Office/Business :: Financial :: Investment",
+    "Topic :: Scientific/Engineering :: Atmospheric Science",
+]
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "pyarrow>=15",
+    "requests>=2.31",
+    "lightgbm>=4.3",
+    "scikit-learn>=1.4",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.5",
+    "mypy>=1.10",
+    "pandas-stubs>=2.2",
+    "types-requests>=2.31",
+]
+
+[project.scripts]
+weatherbot = "weatherbot.cli:main"
+
+[project.urls]
+Repository = "https://github.com/SomeGuy966/weather-bot"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+weatherbot = ["py.typed"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "N", "RUF"]
+ignore = ["N803", "N806", "RUF001", "RUF002", "RUF003"]  # math-style names; typographic dashes/degree signs in text
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unreachable = true
+files = ["src"]
+
+[[tool.mypy.overrides]]
+module = ["lightgbm.*", "sklearn.*", "matplotlib.*", "pyarrow.*", "scipy.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
